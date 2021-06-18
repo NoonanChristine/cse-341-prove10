@@ -22,11 +22,11 @@ router.post('/insertName', (req, res, next) => {
   }
 })
 
-// router.get('/', (req, res, next) => {
-//   res.render('./avengers-list', {
-//     title: 'Assignment 10', 
-//     path: 'avengers-list'
-//   })
-// })
+router.get('/', (req, res, next) => {
+  res.render('./avengers-list', {
+    title: 'Assignment 10', 
+    path: 'avengers-list'
+  })
+})
 
 module.exports = router
