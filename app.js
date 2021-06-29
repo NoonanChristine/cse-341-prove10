@@ -6,7 +6,17 @@ const bodyParser = require('body-parser');
 const router = require('./server');
 
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
 app.set('view engine', 'ejs');
+
+io.on("connection", socket => {
+  console.log('client connected')
+  socket.on("new-name", () => {
+    socket.broadcast.emit('update-list')
+  });
+})
 
 //app will be using JSON
 app.use(bodyParser.json())
@@ -21,4 +31,4 @@ app.get('/avengers-list', (req, res, next) => {
       })
 });
 
-app.listen(PORT);
+server.listen(PORT);

@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+// const io = require("socket.io")(3000);
+
+// io.on("connection", socket => {})
 
 //path to data
 const dummyData = require('./data')
